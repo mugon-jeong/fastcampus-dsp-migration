@@ -35,3 +35,5 @@ out/
 
 ### VS Code ###
 .vscode/
+/fastcampus-docker-infra/data/legacy-db/
+/fastcampus-docker-infra/data/recent-db/
