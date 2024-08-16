@@ -1,0 +1,19 @@
+services:
+  fastcampus-mysql:
+    image: mysql:8.3
+    ports:
+      - "3309:3306"
+    volumes:
+      - ./data/legacy-db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: localpw
+      MYSQL_DATABASE: legacy-ad
+  fastcampus-postgresql:
+    image: postgres:16.2
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./data/recent-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: localpw
+      MYSQL_DATABASE: legacy-ad
