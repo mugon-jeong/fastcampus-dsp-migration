@@ -1,0 +1,27 @@
+package fastcampus.ad.migration.gradual.domain.legacyad.campaign;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import org.springframework.data.domain.AbstractAggregateRoot;
+
+@Entity
+@NoArgsConstructor
+@Getter
+public class LegacyCampaign extends AbstractAggregateRoot<LegacyCampaign> {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
+
+  private String name;
+  private Long userId;
+  private Long budget;
+  private LocalDateTime createdAt;
+  private LocalDateTime updatedAt;
+  private LocalDateTime deletedAt;
+}
