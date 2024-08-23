@@ -1,5 +1,6 @@
 package fastcampus.ad.migration.gradual.domain.legacyad.user;
 
+import fastcampus.ad.migration.gradual.domain.legacyad.DeletableEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,7 +8,6 @@ import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.domain.AbstractAggregateRoot;
 
 @Entity
 @NoArgsConstructor
@@ -18,7 +18,7 @@ import org.springframework.data.domain.AbstractAggregateRoot;
  *  - domain event 들은 repository에 save가 일어날때 event가 실행됨
  *  - event가 발행되면 clear 함수를 통해 초기화됨
  */
-public class LegacyUser extends AbstractAggregateRoot<LegacyUser> {
+public class LegacyUser implements DeletableEntity {
 
 
   @Id

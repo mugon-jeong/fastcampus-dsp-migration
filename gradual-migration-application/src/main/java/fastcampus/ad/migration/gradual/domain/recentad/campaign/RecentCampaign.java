@@ -1,5 +1,6 @@
 package fastcampus.ad.migration.gradual.domain.recentad.campaign;
 
+import fastcampus.ad.migration.gradual.domain.recentad.MigratedEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import java.time.LocalDateTime;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Getter
-public class RecentCampaign {
+public class RecentCampaign implements MigratedEntity {
 
   @Id
   private Long id;
