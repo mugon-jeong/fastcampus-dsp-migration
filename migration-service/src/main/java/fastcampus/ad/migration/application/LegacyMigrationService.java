@@ -1,7 +1,7 @@
 package fastcampus.ad.migration.application;
 
-import fastcampus.ad.migration.gradual.domain.legacyad.DeletableEntity;
-import fastcampus.ad.migration.gradual.domain.recentad.MigratedEntity;
+import fastcampus.ad.migration.domain.legacyad.DeletableEntity;
+import fastcampus.ad.migration.domain.recentad.MigratedEntity;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.repository.CrudRepository;
