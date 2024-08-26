@@ -1,5 +1,6 @@
 package fastcampus.ad.migration.gradual.message;
 
+import fastcampus.ad.migration.domain.AggregateType;
 import java.time.LocalDateTime;
 
 public record LegacyDomainMessage(
@@ -9,5 +10,5 @@ public record LegacyDomainMessage(
     LocalDateTime occurredOn
 ) {
 
-  
+
 }
