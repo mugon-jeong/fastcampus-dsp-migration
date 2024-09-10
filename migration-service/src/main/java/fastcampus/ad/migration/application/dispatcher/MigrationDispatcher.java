@@ -5,6 +5,7 @@ import fastcampus.ad.migration.application.legacy.adgroup.LegacyAdGroupMigration
 import fastcampus.ad.migration.application.legacy.campaign.LegacyCampaignMigrationService;
 import fastcampus.ad.migration.application.legacy.keyword.LegacyKeywordMigrationService;
 import fastcampus.ad.migration.application.legacy.user.LegacyUserMigrationService;
+import fastcampus.ad.migration.application.user.MigrationUserService;
 import fastcampus.ad.migration.domain.AggregateType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,13 +16,21 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class MigrationDispatcher {
 
+  private final MigrationUserService migrationUserService;
   private final LegacyUserMigrationService legacyUserMigrationService;
   private final LegacyCampaignMigrationService legacyCampaignMigrationService;
   private final LegacyAdGroupMigrationService legacyAdGroupMigrationService;
   private final LegacyKeywordMigrationService legacyKeywordMigrationService;
 
-  public boolean dispatch(Long aggregateId, AggregateType aggregateType) {
+  public boolean dispatch(Long userId, Long aggregateId, AggregateType aggregateType) {
+    if (isDisagreed(userId)) {
+      return false;
+    }
     return migrate(aggregateId, aggregateType);
+  }
+
+  private boolean isDisagreed(Long userId) {
+    return migrationUserService.isDisagreed(userId);
   }
 
   private boolean migrate(Long aggregateId, AggregateType aggregateType) {

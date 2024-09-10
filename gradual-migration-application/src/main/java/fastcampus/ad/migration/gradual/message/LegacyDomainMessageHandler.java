@@ -16,7 +16,7 @@ public class LegacyDomainMessageHandler {
   public Consumer<LegacyDomainMessage> legacyConsumer() {
     return message -> {
       System.out.println("Received message: " + message);
-      dispatcher.dispatch(message.aggregateId(), message.aggregateType());
+      dispatcher.dispatch(message.ownerId(), message.aggregateId(), message.aggregateType());
     };
   }
 }
