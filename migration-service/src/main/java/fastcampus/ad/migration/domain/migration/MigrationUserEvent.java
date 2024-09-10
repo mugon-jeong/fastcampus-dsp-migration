@@ -16,4 +16,8 @@ public class MigrationUserEvent {
     return migrationUser.getStatus();
   }
 
+  public MigrationUserStatus getPrevStatus() {
+    return migrationUser.getPrevStatus();
+  }
+
 }
